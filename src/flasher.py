@@ -10,12 +10,12 @@ class Flasher:
         """Flashes the SPIFFS image."""
         print("Flashing SPIFFS image...")
 
-        esptool_path = self.config.get("esptool_path", "esptool.py")
-        port = self.config.get("port")
-        baud = self.config.get("baud", "460800")
-        chip = self.config.get("chip", "esp32")
-        image_file = self.config.get("image_file", "spiffs.bin")
-        partition_offset = self.config.get("partition_offset")
+        esptool_path = self.config["esptool_path"]
+        port = self.config["port"]
+        baud = self.config["baud"]
+        chip = self.config["chip"]
+        image_file = self.config["image_file"]
+        partition_offset = self.config["partition_offset"]
 
         if not port:
             print(

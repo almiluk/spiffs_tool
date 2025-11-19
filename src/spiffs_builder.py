@@ -1,6 +1,5 @@
 import subprocess
 import os
-import sys
 
 
 class SpiffsBuilder:
@@ -11,12 +10,12 @@ class SpiffsBuilder:
         """Builds the SPIFFS image."""
         print("Building SPIFFS image...")
 
-        mkspiffs_path = self.config.get("mkspiffs_path", "mkspiffs")
-        data_dir = self.config.get("data_dir", "data")
-        out_file = self.config.get("image_file", "spiffs.bin")
-        page_size = self.config.get("page_size", 256)
-        block_size = self.config.get("block_size", 4096)
-        partition_size = self.config.get("partition_size")
+        mkspiffs_path = self.config["mkspiffs_path"]
+        data_dir = self.config["data_dir"]
+        out_file = self.config["image_file"]
+        page_size = self.config["page_size"]
+        block_size = self.config["block_size"]
+        partition_size = self.config["partition_size"]
 
         if not partition_size:
             print(
