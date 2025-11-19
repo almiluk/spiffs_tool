@@ -61,6 +61,11 @@ To see all available options:
 ./spiffs_tool.pyz --port /dev/ttyUSB0 --baud 115200
 ```
 
+**Specify Image File:**
+```bash
+./spiffs_tool.pyz --image-file my_spiffs.bin
+```
+
 ## Building from Source
 
 If you want to modify the tool or build it yourself:

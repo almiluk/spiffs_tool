@@ -91,9 +91,9 @@ class ConfigLoader:
             "--flash-only", action="store_true", help="Only flash the image"
         )
         parser.add_argument(
-            "--out-file",
+            "--image-file",
             default="spiffs.bin",
-            help="Output filename for the SPIFFS image",
+            help="Path to SPIFFS image file (default: spiffs.bin)",
         )
 
         return parser.parse_args()
@@ -137,7 +137,7 @@ class ConfigLoader:
             "esptool_path": args.esptool_path,
             "build_only": args.build_only,
             "flash_only": args.flash_only,
-            "out_file": args.out_file,
+            "image_file": args.image_file,
         }
 
         # Extract PartitionScheme

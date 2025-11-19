@@ -14,7 +14,7 @@ class Flasher:
         port = self.config.get("port")
         baud = self.config.get("baud", "460800")
         chip = self.config.get("chip", "esp32")
-        image_file = self.config.get("out_file", "spiffs.bin")
+        image_file = self.config.get("image_file", "spiffs.bin")
         partition_offset = self.config.get("partition_offset")
 
         if not port:

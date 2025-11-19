@@ -13,7 +13,7 @@ class SpiffsBuilder:
 
         mkspiffs_path = self.config.get("mkspiffs_path", "mkspiffs")
         data_dir = self.config.get("data_dir", "data")
-        out_file = self.config.get("out_file", "spiffs.bin")
+        out_file = self.config.get("image_file", "spiffs.bin")
         page_size = self.config.get("page_size", 256)
         block_size = self.config.get("block_size", 4096)
         partition_size = self.config.get("partition_size")
