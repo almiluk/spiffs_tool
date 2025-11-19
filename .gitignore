@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.pyc
+
+# Build artifacts
+spiffs_tool.pyz
+
+# Local configuration
+arduino.json
+.vscode/
+
+# Test data and mocks
+data/
+mock_tools/
+spiffs.bin
