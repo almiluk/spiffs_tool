@@ -52,7 +52,7 @@ class Flasher:
                 port,
                 "--baud",
                 str(baud),
-                "write_flash",
+                "write-flash",
                 str(partition_offset),
                 image_file,
             ]

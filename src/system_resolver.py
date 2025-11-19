@@ -115,9 +115,16 @@ class SystemResolver:
             try:
                 versions = sorted(os.listdir(esptool_base), reverse=True)
                 if versions:
-                    esptool_path = os.path.join(
-                        esptool_base, versions[0], "esptool.py"
-                    )
+                    # Check for esptool (binary) or esptool.py
+                    base_ver_path = os.path.join(esptool_base, versions[0])
+                    if os.path.exists(os.path.join(base_ver_path, "esptool")):
+                        esptool_path = os.path.join(base_ver_path, "esptool")
+                    elif os.path.exists(
+                        os.path.join(base_ver_path, "esptool.py")
+                    ):
+                        esptool_path = os.path.join(
+                            base_ver_path, "esptool.py"
+                        )
             except OSError:
                 pass
 
