@@ -12,7 +12,7 @@ def main():
         args = loader.parse_args()
 
         # 2. Load arduino.json (optional)
-        json_config = loader.load_arduino_json()
+        json_config = loader.load_arduino_json(args.arduino_config)
 
         # 3. Merge config
         config = loader.merge_config(args, json_config)

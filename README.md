@@ -51,6 +51,11 @@ To see all available options:
 ./spiffs_tool.pyz --data-dir my_data_folder
 ```
 
+**Specify Arduino Config File:**
+```bash
+./spiffs_tool.pyz --arduino-config .vscode/arduino.json
+```
+
 **Override Port and Baud Rate:**
 ```bash
 ./spiffs_tool.pyz --port /dev/ttyUSB0 --baud 115200

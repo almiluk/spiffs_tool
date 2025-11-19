@@ -14,13 +14,18 @@ class ConfigLoader:
         self.config = {}
         self.resolver = SystemResolver()
 
-    def load_arduino_json(self, path: str = "arduino.json") -> Dict[str, Any]:
+    def load_arduino_json(self, path: str = None) -> Dict[str, Any]:
         """Loads configuration from arduino.json if it exists."""
-        if not os.path.exists(path):
-            # Try looking in .vscode/arduino.json as well
-            path = os.path.join(".vscode", "arduino.json")
+        if not path:
+            path = "arduino.json"
             if not os.path.exists(path):
-                return {}
+                # Try looking in .vscode/arduino.json as well
+                path = os.path.join(".vscode", "arduino.json")
+                if not os.path.exists(path):
+                    return {}
+        elif not os.path.exists(path):
+            print(f"Warning: Config file not found at {path}")
+            return {}
 
         try:
             with open(path, 'r') as f:
@@ -36,6 +41,11 @@ class ConfigLoader:
     def parse_args(self) -> argparse.Namespace:
         parser = argparse.ArgumentParser(
             description="ESP32 SPIFFS Builder and Flasher"
+        )
+
+        # General options
+        parser.add_argument(
+            "--arduino-config", help="Path to arduino.json configuration file"
         )
 
         # SPIFFS options
